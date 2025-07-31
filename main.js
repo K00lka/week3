@@ -32,12 +32,20 @@ function game() {
     let result = checkGuess(guess, targetNumber);
     const maxAttempts = 10;
     let attempts = 1;
+    let points = 110;
     while (!result && attempts < maxAttempts) {
         attempts++;
+        points -= 10;
         const guess = userGuess();
         result = checkGuess(guess, targetNumber);
     }
-   
+   while (attempts >= maxAttempts) {
+        alert("Sorry, you've used all your attempts. The number was " + targetNumber + ".");
+        return;
+    }
+    alert("You guessed the number in " + attempts + " attempts! Your score is " + points + " points.");
 }
+
+
 
 game()
