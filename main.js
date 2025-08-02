@@ -5,9 +5,9 @@ function randomNumber() {
 } 
 
 function userGuess() {
-    let guess = parseFloat(prompt("Enter a number between 1 and 100:"));
-    if (isNaN(guess) || guess < 1 || guess > 100 || !Number.isInteger(guess)) {
-        alert("Please enter a valid number between 1 and 100.");
+    let guess = parseFloat(prompt("Enter an integer number between 1 and 100:"));
+    if (isNaN(guess) || guess < 1 || guess > 100 || !Number.isInteger(guess) ) {
+        alert("Please enter a valid integer number between 1 and 100.");
         return userGuess();
     }
     return guess;
