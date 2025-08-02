@@ -6,6 +6,11 @@ function randomNumber() {
 
 function userGuess() {
     let guess = parseFloat(prompt("Enter an integer number between 1 and 100:"));
+    if (input === null) {
+        // User pressed Cancel
+        alert("Game cancelled. Goodbye!");
+        throw new Error("Game cancelled by user.");
+    }
     if (isNaN(guess) || guess < 1 || guess > 100 || !Number.isInteger(guess) ) {
         alert("Please enter a valid integer number between 1 and 100.");
         return userGuess();
@@ -26,6 +31,17 @@ function checkGuess (guess, targetNymber){
     }
 }
 
+function resetGame() {
+    const reset = confirm("Do you want to play again?");
+    if (reset) {
+        game();
+    } else {
+        alert("Thank you for playing!");
+    }
+}
+
+
+
 function game() {
     let targetNumber =randomNumber();
     let guess = userGuess();
@@ -44,6 +60,8 @@ function game() {
         return;
     }
     alert("You guessed the number in " + attempts + " attempts! Your score is " + points + " points.");
+    resetGame();
+    
 }
 
 
