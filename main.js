@@ -4,14 +4,30 @@ function randomNumber() {
     return targetNumber
 } 
 
+function introduction(){
+    alert("Welcome to the Number Guessing Game!");
+    alert("I have selected a random integer number between 1 and 100.");
+    alert("Your task is to guess the number within 10 attempts.");
+    alert("You can earn points based on the number of attempts you take.");
+    alert("Good luck!");
+}
+
 function userGuess() {
-    let guess = parseFloat(prompt("Enter an integer number between 1 and 100:"));
-   
-    if (isNaN(guess) || guess < 1 || guess > 100 || !Number.isInteger(guess) ) {
+    let guess = prompt("Enter an integer number between 1 and 100:");
+    let guessNumber = parseFloat(guess);
+    if (guess === null) {
+        // User pressed Cancel
+        alert("Game cancelled. Goodbye!");
+        throw new Error("Game cancelled by user.");
+    }
+    if (isNaN(guessNumber) || guessNumber < 1 || guessNumber > 100 || !Number.isInteger(guessNumber) ) {
         alert("Please enter a valid integer number between 1 and 100.");
         return userGuess();
     }
-    return guess;
+    if (guessNumber === 69){
+        alert("Grow up!");
+    }
+    return guessNumber;
 }
 
 function checkGuess (guess, targetNymber){
@@ -61,5 +77,5 @@ function game() {
 }
 
 
-
+introduction();
 game()
